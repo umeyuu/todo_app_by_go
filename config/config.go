@@ -2,6 +2,7 @@ package config
 
 import (
 	"log"
+	"sqlite/go/src/todo_app_by_go/utils"
 
 	"gopkg.in/ini.v1"
 )
@@ -17,6 +18,7 @@ var Config ConfigList
 
 func init() {
 	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
 }
 
 func LoadConfig() {
