@@ -7,7 +7,7 @@ import (
 )
 
 func top(w http.ResponseWriter, r *http.Request) {
-	_, err := seesion(w, r)
+	_, err := session(w, r)
 	if err != nil {
 		generateHTML(w, "hello", "layout", "public_navbar", "top")
 	} else {
@@ -16,7 +16,7 @@ func top(w http.ResponseWriter, r *http.Request) {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	sess, err := seesion(w, r)
+	sess, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/", 302)
 	} else {
@@ -31,7 +31,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func todoNew(w http.ResponseWriter, r *http.Request) {
-	_, err := seesion(w, r)
+	_, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/login", 302)
 	} else {
@@ -40,7 +40,7 @@ func todoNew(w http.ResponseWriter, r *http.Request) {
 }
 
 func todoSave(w http.ResponseWriter, r *http.Request) {
-	sess, err := seesion(w, r)
+	sess, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/login", 302)
 	} else {
@@ -61,7 +61,7 @@ func todoSave(w http.ResponseWriter, r *http.Request) {
 }
 
 func todoEdit(w http.ResponseWriter, r *http.Request, id int) {
-	sess, err := seesion(w, r)
+	sess, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/login", 302)
 	} else {
@@ -79,7 +79,7 @@ func todoEdit(w http.ResponseWriter, r *http.Request, id int) {
 }
 
 func todoUpdate(w http.ResponseWriter, r *http.Request, id int) {
-	sess, err := seesion(w, r)
+	sess, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/login", 302)
 	} else {
@@ -101,7 +101,7 @@ func todoUpdate(w http.ResponseWriter, r *http.Request, id int) {
 }
 
 func todosDelete(w http.ResponseWriter, r *http.Request, id int) {
-	sess, err := seesion(w, r)
+	sess, err := session(w, r)
 	if err != nil {
 		http.Redirect(w, r, "/login", 302)
 	} else {
